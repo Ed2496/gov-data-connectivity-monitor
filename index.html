@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政府資料平台連線監測報告</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+         background:#f0f4f8; color:#1e293b; line-height:1.6; }
+  .wrap { max-width:1080px; margin:0 auto; padding:32px 20px 64px; }
+  header { background:linear-gradient(135deg,#0f3d6e,#1565a8); color:#fff;
+           border-radius:14px; padding:28px 32px; margin-bottom:24px; }
+  header h1 { font-size:1.6rem; }
+  header p { opacity:.85; font-size:.9rem; margin-top:6px; }
+  .gen { float:right; font-size:.78rem; opacity:.75; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+           gap:18px; margin-bottom:28px; }
+  .card { background:#fff; border-radius:12px; padding:20px 22px;
+          box-shadow:0 2px 8px rgba(30,41,59,.08); border-top:5px solid #94a3b8; }
+  .card.ok { border-top-color:#16a34a; }
+  .card.fail { border-top-color:#dc2626; }
+  .card-head { display:flex; justify-content:space-between; align-items:center; }
+  .card h2 { font-size:1.05rem; }
+  .status-dot { width:12px; height:12px; border-radius:50%; background:#94a3b8; }
+  .status-dot.ok { background:#16a34a; box-shadow:0 0 0 4px rgba(22,163,74,.15); }
+  .status-dot.fail { background:#dc2626; box-shadow:0 0 0 4px rgba(220,38,38,.15); }
+  .url { font-size:.78rem; color:#64748b; word-break:break-all; margin-top:2px; }
+  .big-status { font-size:1.9rem; font-weight:700; margin:10px 0 6px; }
+  .card.ok .big-status { color:#16a34a; }
+  .card.fail .big-status { color:#dc2626; }
+  .card-body { font-size:.88rem; color:#334155; min-height:66px; }
+  .note { color:#94a3b8; font-size:.8rem; }
+  .metrics { display:flex; border-top:1px solid #e2e8f0; margin-top:12px; padding-top:12px; }
+  .metrics > div { flex:1; text-align:center; }
+  .metrics .num { display:block; font-size:1.15rem; font-weight:700; color:#0f3d6e; }
+  .metrics .lbl { font-size:.75rem; color:#64748b; }
+  .badge { display:inline-block; padding:2px 10px; border-radius:999px; font-size:.78rem; font-weight:600; }
+  .badge.ok { background:#dcfce7; color:#15803d; }
+  .badge.fail { background:#fee2e2; color:#b91c1c; }
+  section { background:#fff; border-radius:12px; padding:22px 24px; margin-bottom:22px;
+            box-shadow:0 2px 8px rgba(30,41,59,.08); overflow-x:auto; }
+  section h3 { font-size:1.05rem; margin-bottom:12px; color:#0f3d6e; }
+  table { width:100%; border-collapse:collapse; font-size:.85rem; }
+  th,td { padding:8px 10px; border-bottom:1px solid #e2e8f0; text-align:left; }
+  th { background:#f1f5f9; color:#475569; font-weight:600; white-space:nowrap; }
+  td.r,th.r { text-align:right; }
+  tr.row-fail td { background:#fff7f7; }
+  tr.row-ok td { background:#f7fff9; }
+  .empty { text-align:center; color:#94a3b8; }
+  footer { text-align:center; color:#94a3b8; font-size:.78rem; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="gen">報告產生時間：2026-08-26 11:36:20（台北時間）</span>
+    <h1>政府資料平台連線監測報告</h1>
+    <p>監測期間：2026-08-23 ～ 2026-09-01　｜　頻率：每日 09:00／15:00／21:00　｜　累計檢測 2 次，整體成功率 0.0%　｜　由 GitHub Actions 自動執行</p>
+  </header>
+
+  <div class="cards">
+      <div class="card fail">
+        <div class="card-head"><h2>KCG 高雄開放資料平台</h2><span class="status-dot fail"></span></div>
+        <div class="url">https://data.kcg.gov.tw/</div>
+        <div class="big-status">異常</div>
+        <div class="card-body">最近檢測：2026-08-26 09:16:05（台北時間）<br>結果：<span class='badge fail'>✗ FAIL</span>　HTTP 000　30.001s<br><span class='note'>連線逾時（30s 無回應）</span></div>
+        <div class="metrics">
+          <div><span class="num">1</span><span class="lbl">累計次數</span></div>
+          <div><span class="num">0.0%</span><span class="lbl">成功率</span></div>
+          <div><span class="num">30.00s</span><span class="lbl">平均回應</span></div>
+        </div>
+      </div>
+      <div class="card fail">
+        <div class="card-head"><h2>MOL 勞動部統計資料庫</h2><span class="status-dot fail"></span></div>
+        <div class="url">https://statfy.mol.gov.tw/statistic_DB.aspx</div>
+        <div class="big-status">異常</div>
+        <div class="card-body">最近檢測：2026-08-26 09:16:05（台北時間）<br>結果：<span class='badge fail'>✗ FAIL</span>　HTTP 000　30.001s<br><span class='note'>連線逾時（30s 無回應）</span></div>
+        <div class="metrics">
+          <div><span class="num">1</span><span class="lbl">累計次數</span></div>
+          <div><span class="num">0.0%</span><span class="lbl">成功率</span></div>
+          <div><span class="num">30.00s</span><span class="lbl">平均回應</span></div>
+        </div>
+      </div>
+  </div>
+
+  <section>
+    <h3>累計統計</h3>
+    <table>
+      <thead><tr><th>網站</th><th class="r">累計次數</th><th class="r">成功</th><th class="r">失敗</th><th class="r">成功率</th><th class="r">平均回應（成功時）</th><th>最近結果</th></tr></thead>
+      <tbody><tr><td>KCG 高雄開放資料平台</td><td class='r'>1</td><td class='r'>0</td><td class='r'>1</td><td class='r'>0.0%</td><td class='r'>—</td><td>FAIL（2026-08-26 09:16）</td></tr><tr><td>MOL 勞動部統計資料庫</td><td class='r'>1</td><td class='r'>0</td><td class='r'>1</td><td class='r'>0.0%</td><td class='r'>—</td><td>FAIL（2026-08-26 09:16）</td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>監測紀錄（新→舊）</h3>
+    <table>
+      <thead><tr><th>時間</th><th>網站</th><th class="r">HTTP</th><th class="r">回應時間</th><th>結果</th><th>備註</th></tr></thead>
+      <tbody><tr class='row-fail'><td>2026-08-26 09:16:05（台北時間）</td><td>MOL 勞動部統計資料庫</td><td class='r'>000</td><td class='r'>30.001s</td><td><span class="badge fail">✗ FAIL</span></td><td>連線逾時（30s 無回應）</td></tr><tr class='row-fail'><td>2026-08-26 09:16:05（台北時間）</td><td>KCG 高雄開放資料平台</td><td class='r'>000</td><td class='r'>30.001s</td><td><span class="badge fail">✗ FAIL</span></td><td>連線逾時（30s 無回應）</td></tr></tbody>
+    </table>
+  </section>
+
+  <footer>GitHub Actions 自動產生 ｜ 原始紀錄內嵌於本頁 ｜ 2026-09-01 起自動產出十天總報告</footer>
+</div>
+<script type="text/plain" id="raw-csv">timestamp,site,url,http_code,response_time_s,result,note
+2026-08-26 09:16:05（台北時間）,KCG,https://data.kcg.gov.tw/,000,30.001,FAIL,連線逾時（30s 無回應）
+2026-08-26 09:16:05（台北時間）,MOL,https://statfy.mol.gov.tw/statistic_DB.aspx,000,30.001,FAIL,連線逾時（30s 無回應）
+</script>
+</body>
+</html>

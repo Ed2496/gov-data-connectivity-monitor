@@ -1,0 +1,39 @@
+name: 政府資料平台連線監測
+
+# 排程說明：
+#   GitHub Actions 的 cron 使用 UTC。
+#   '0 1,7,13 * * *' = 台北時間每日 09:00 / 15:00 / 21:00
+#   （GitHub 排程在高峰時段可能延遲數分鐘，屬正常現象）
+on:
+  schedule:
+    - cron: '0 1,7,13 * * *'
+  workflow_dispatch:   # 允許在 Actions 頁面手動觸發
+
+permissions:
+  contents: write      # 允許 workflow 把監測結果 commit 回儲存庫
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出儲存庫
+        uses: actions/checkout@v4
+
+      - name: 執行兩站連線測試
+        run: bash scripts/connectivity_test.sh
+
+      - name: 產生報告（md + html；9/1 起自動產十天總報告）
+        run: python3 scripts/build_reports.py
+
+      - name: 將結果提交回儲存庫
+        run: |
+          git config user.name "connectivity-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add connectivity_log.csv connectivity_report.md index.html
+          git add connectivity_final_report.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "無變更，略過提交"
+          else
+            git commit -m "監測更新 $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')（台北時間）"
+            git push
+          fi
