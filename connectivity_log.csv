@@ -135,3 +135,5 @@ timestamp,site,url,http_code,response_time_s,result,note
 2026-09-19 00:51:38（台北時間）,MOL,https://statfy.mol.gov.tw/statistic_DB.aspx,000,30.002,FAIL,連線逾時（30s 無回應）
 2026-09-19 13:22:18（台北時間）,KCG,https://data.kcg.gov.tw/,000,30.002,FAIL,連線逾時（30s 無回應）
 2026-09-19 13:22:18（台北時間）,MOL,https://statfy.mol.gov.tw/statistic_DB.aspx,000,30.003,FAIL,連線逾時（30s 無回應）
+2026-09-19 19:43:50（台北時間）,KCG,https://data.kcg.gov.tw/,000,30.000,FAIL,連線逾時（30s 無回應）
+2026-09-19 19:43:50（台北時間）,MOL,https://statfy.mol.gov.tw/statistic_DB.aspx,000,30.001,FAIL,連線逾時（30s 無回應）
